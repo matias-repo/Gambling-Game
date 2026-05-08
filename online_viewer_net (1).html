@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>💎 ELITE CASINO · 12 GAMES · FAKE CURRENCY</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at 10% 20%, #1c162f, #05020c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .grand-casino {
+      max-width: 1300px;
+      width: 100%;
+      background: rgba(10, 6, 22, 0.8);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(240, 200, 80, 0.4);
+      box-shadow: 0 40px 60px rgba(0,0,0,0.8), 0 0 40px rgba(220, 180, 60, 0.25);
+      border-radius: 3rem;
+      padding: 2.2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .top-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.45);
+      border-radius: 3rem;
+      padding: 1.2rem 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    .balance-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .coin-badge {
+      background: linear-gradient(145deg, #f9d56e, #b58b2c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .coin-badge span {
+      background: #211c30;
+      padding: 0.3rem 1.2rem;
+      border-radius: 2.5rem;
+      background: rgba(20,15,35,0.8);
+      border: 1px solid gold;
+      -webkit-text-fill-color: #ffdf80;
+      font-size: 2.2rem;
+    }
+    .rock-bottom-banner {
+      background: #392b4a;
+      padding: 0.5rem 1.4rem;
+      border-radius: 3rem;
+      color: #edd9a3;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px dashed #c9a53b;
+    }
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.9rem;
+      margin: 0.4rem 0 0.8rem;
+    }
+    .game-card {
+      background: rgba(25, 19, 40, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 1rem 0.6rem;
+      text-align: center;
+      border: 1px solid rgba(210, 160, 40, 0.45);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: #f0e3c2;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: #efc456;
+      box-shadow: 0 12px 25px rgba(230, 180, 30, 0.35);
+      background: rgba(35, 25, 55, 0.85);
+    }
+    .game-icon {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 4px 6px black);
+    }
+    .game-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    .active-game-area {
+      background: rgba(0,0,0,0.5);
+      border-radius: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(212,175,55,0.4);
+      min-height: 200px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      color: #cfb87c;
+      font-weight: 600;
+    }
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    button {
+      background: linear-gradient(180deg, #f3d779 0%, #b68b2c 100%);
+      border: none;
+      border-radius: 2.5rem;
+      padding: 0.7rem 1.8rem;
+      font-weight: 700;
+      color: #1e1529;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #5c3f14, 0 8px 18px black;
+      transition: 0.1s linear;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      border: 1px solid #efcd70;
+    }
+    button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #4c3512, 0 5px 12px black;
+    }
+    .bet-input {
+      background: #1f1730;
+      border: 1px solid #c5a343;
+      border-radius: 2rem;
+      padding: 0.7rem 1.5rem;
+      color: #ffe8b0;
+      font-weight: bold;
+      width: 100px;
+      text-align: center;
+      outline: none;
+    }
+    .result-message {
+      background: #221d31;
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      color: #fadf8a;
+    }
+    .flex-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    hr {
+      border-color: #4c3d52;
+      margin: 12px 0;
+    }
+    @media (max-width: 700px) {
+      .grand-casino {
+        padding: 1.5rem;
+      }
+      .coin-badge {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="grand-casino">
+  <div class="top-panel">
+    <div class="balance-section">
+      <div class="coin-badge">
+        💰 <span id="balanceDisplay">500</span>
+      </div>
+      <div class="rock-bottom-banner" id="rockBottomMsg">
+        🆘 <span>Rock bottom? +100 tokens</span>
+      </div>
+    </div>
+    <button id="resetBalanceBtn" style="background:#3e2e51; color: #f5e3b0; box-shadow:0 4px 0 #231b2c;">↺ RESET TO 500</button>
+  </div>
+
+  <!-- 12 GAME GRID -->
+  <div class="game-grid" id="gameGrid">
+    <!-- dynamically filled but we place static for clarity, JS will override -->
+  </div>
+
+  <div class="active-game-area" id="activeGamePanel">
+    <div class="game-header">
+      <span id="currentGameTitle">🎲 SELECT A GAME</span>
+      <span id="gameInstruction">Click any game above</span>
+    </div>
+    <div id="dynamicGameContent">
+      <p style="color:#aaa;">Choose from 12 unique games. Each has different rules & fake currency action.</p>
+    </div>
+  </div>
+  <div id="globalMessage" class="result-message" style="text-align:center;">✨ Welcome! You start with 500 tokens.</div>
+</div>
+
+<script>
+  (function() {
+    // ---------- FAKE CURRENCY SYSTEM ----------
+    let balance = 500;
+    const BALANCE_KEY = 'luxeCasinoBalance';
+    // Load saved balance if exists
+    try {
+      const saved = localStorage.getItem(BALANCE_KEY);
+      if (saved !== null) {
+        let val = parseFloat(saved);
+        if (!isNaN(val) && val >= 0) balance = val;
+      }
+    } catch (e) {}
+
+    function saveBalance() {
+      localStorage.setItem(BALANCE_KEY, balance);
+    }
+
+    function updateBalanceUI() {
+      document.getElementById('balanceDisplay').textContent = balance;
+      saveBalance();
+    }
+
+    // Rock bottom mechanic: whenever balance becomes 0 or below, grant 100 tokens (only once per rock-bottom trigger)
+    let rockBottomTriggered = false;
+    function checkRockBottom() {
+      if (balance <= 0) {
+        if (!rockBottomTriggered) {
+          balance += 100;
+          rockBottomTriggered = true;
+          document.getElementById('globalMessage').textContent = '🆘 You hit rock bottom! 100 free tokens added. Keep playing!';
+          updateBalanceUI();
+        } else {
+          // already gave free tokens, but if still zero after that? prevent negative?
+          if (balance < 0) balance = 0;
+          updateBalanceUI();
+        }
+      } else {
+        // reset rock bottom flag when balance positive
+        rockBottomTriggered = false;
+      }
+    }
+
+    function adjustBalance(amount) {
+      balance += amount;
+      if (balance < 0) balance = 0;
+      updateBalanceUI();
+      checkRockBottom();
+    }
+
+    function setBalanceDirect(value) {
+      balance = value;
+      if (balance < 0) balance = 0;
+      updateBalanceUI();
+      checkRockBottom();
+    }
+
+    // Reset balance
+    document.getElementById('resetBalanceBtn').addEventListener('click', ()=>{
+      setBalanceDirect(500);
+      rockBottomTriggered = false;
+      document.getElementById('globalMessage').textContent = '🔄 Balance reset to 500 tokens.';
+    });
+
+    // ---------- GAME DEFINITIONS (12 games) ----------
+    const games = [
+      { name: "🎰 Slots", id: "slots", icon: "🎰", desc: "Spin reels, match symbols" },
+      { name: "🃏 Blackjack", id: "blackjack", icon: "🃏", desc: "Beat dealer to 21" },
+      { name: "🎡 Roulette", id: "roulette", icon: "🎡", desc: "Bet on numbers/color" },
+      { name: "🎲 Craps", id: "craps", icon: "🎲", desc: "Dice roll 7/11 wins" },
+      { name: "💰 Hi-Lo", id: "hilo", icon: "💰", desc: "Higher or lower card" },
+      { name: "🍒 Fruit Slots", id: "fruitslots", icon: "🍒", desc: "Classic fruit machine" },
+      { name: "♠️ Poker Flip", id: "pokerflip", icon: "♠️", desc: "5-card hand rank" },
+      { name: "🎯 Keno", id: "keno", icon: "🎯", desc: "Pick numbers, match" },
+      { name: "🏇 Horse Race", id: "horserace", icon: "🏇", desc: "Bet on horse" },
+      { name: "💣 Mines", id: "mines", icon: "💣", desc: "Avoid mines, cashout" },
+      { name: "🔢 Baccarat", id: "baccarat", icon: "🔢", desc: "Player vs Banker" },
+      { name: "🎱 Plinko", id: "plinko", icon: "🎱", desc: "Drop ball, win multiplier" }
+    ];
+
+    const gameGrid = document.getElementById('gameGrid');
+    const currentGameTitle = document.getElementById('currentGameTitle');
+    const gameInstruction = document.getElementById('gameInstruction');
+    const dynamicContent = document.getElementById('dynamicGameContent');
+    const globalMsg = document.getElementById('globalMessage');
+
+    let activeGameId = null;
+
+    function renderGameGrid() {
+      gameGrid.innerHTML = '';
+      games.forEach(g => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.innerHTML = `<div class="game-icon">${g.icon}</div><div class="game-name">${g.name}</div>`;
+        card.addEventListener('click', (e) => {
+          activeGameId = g.id;
+          currentGameTitle.textContent = g.icon + ' ' + g.name;
+          gameInstruction.textContent = g.desc;
+          loadGameInterface(g.id);
+          // highlight active card (visual)
+          document.querySelectorAll('.game-card').forEach(c => c.style.borderColor = 'rgba(210,160,40,0.45)');
+          card.style.borderColor = '#f5d742';
+        });
+        gameGrid.appendChild(card);
+      });
+    }
+
+    // Dynamic game loader
+    function loadGameInterface(gameId) {
+      dynamicContent.innerHTML = ''; 
+      switch (gameId) {
+        case 'slots': buildSlots(); break;
+        case 'blackjack': buildBlackjack(); break;
+        case 'roulette': buildRoulette(); break;
+        case 'craps': buildCraps(); break;
+        case 'hilo': buildHiLo(); break;
+        case 'fruitslots': buildFruitSlots(); break;
+        case 'pokerflip': buildPokerFlip(); break;
+        case 'keno': buildKeno(); break;
+        case 'horserace': buildHorseRace(); break;
+        case 'mines': buildMines(); break;
+        case 'baccarat': buildBaccarat(); break;
+        case 'plinko': buildPlinko(); break;
+        default: dynamicContent.innerHTML = '<p>Select a game.</p>';
+      }
+    }
+
+    // ---------- HELPER: bet input + action ----------
+    function getBetInput(defaultBet = 10) {
+      let bet = defaultBet;
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.className = 'bet-input';
+      input.value = defaultBet;
+      input.min = 1;
+      input.max = balance;
+      input.step = 1;
+      return input;
+    }
+
+    // ---------- INDIVIDUAL GAME BUILDERS (12) ----------
+    function buildSlots() {
+      const html = `
+        <div class="flex-row">
+          <span>🎰 Bet: </span><input id="slotBet" class="bet-input" type="number" value="10" min="1" max="${balance}">
+          <button id="spinSlots">SPIN</button>
+        </div>
+        <div style="font-size:2.5rem; letter-spacing:12px;" id="slotReels">🍒 🍋 🍊</div>
+        <div id="slotResult" class="result-message"></div>
+      `;
+      dynamicContent.innerHTML = html;
+      document.getElementById('spinSlots').addEventListener('click', ()=>{
+        const bet = parseInt(document.getElementById('slotBet').value) || 10;
+        if (bet > balance) { globalMsg.textContent = '❌ Not enough tokens.'; return; }
+        adjustBalance(-bet);
+        const symbols = ['🍒','🍋','🍊','🍇','💎','7️⃣'];
+        const r1 = symbols[Math.floor(Math.random()*symbols.length)];
+        const r2 = symbols[Math.floor(Math.random()*symbols.length)];
+        const r3 = symbols[Math.floor(Math.random()*symbols.length)];
+        document.getElementById('slotReels').textContent = `${r1} ${r2} ${r3}`;
+        let win = 0;
+        if (r1===r2 && r2===r3) win = bet * 10;
+        else if (r1===r2 || r2===r3 || r1===r3) win = bet * 2;
+        if (win>0) { adjustBalance(win); document.getElementById('slotResult').textContent = `🏆 You win ${win} tokens!`; }
+        else document.getElementById('slotResult').textContent = `😵 No luck.`;
+      });
+    }
+
+    function buildBlackjack() {
+      dynamicContent.innerHTML = `<div class="flex-row"><span>🃏 Bet: </span><input id="bjBet" class="bet-input" value="20" min="1"><button id="dealBJ">DEAL</button></div>
+      <div id="bjTable">Press DEAL</div>`;
+      document.getElementById('dealBJ').addEventListener('click', ()=>{
+        const bet = parseInt(document.getElementById('bjBet').value)||20;
+        if(bet>balance){globalMsg.textContent='Not enough tokens';return;}
+        adjustBalance(-bet);
+        const player = Math.floor(Math.random()*11)+10;
+        const dealer = Math.floor(Math.random()*11)+10;
+        let result = `Player: ${player} | Dealer: ${dealer}. `;
+        let win=0;
+        if(player>21) result+='Bust!';
+        else if(dealer>21 || player>dealer) { win=bet*2; result+='You win!'; }
+        else if(player===dealer) { win=bet; result+='Push.'; }
+        else result+='Dealer wins.';
+        if(win>0) adjustBalance(win);
+        document.getElementById('bjTable').innerHTML = result;
+      });
+    }
+
+    function buildRoulette() {
+      dynamicContent.innerHTML = `<div><span>🎡 Bet: </span><input id="roulBet" class="bet-input" value="15"><select id="roulType"><option value="red">Red (2x)</option><option value="black">Black (2x)</option><option value="number">Number (5x)</option></select><button id="spinRoul">SPIN</button></div><div id="roulResult"></div>`;
+      document.getElementById('spinRoul').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('roulBet').value)||15;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const num = Math.floor(Math.random()*15)+1;
+        const color = num%2===0?'red':'black';
+        const type=document.getElementById('roulType').value;
+        let win=0;
+        if(type==='red'&&color==='red') win=bet*2;
+        else if(type==='black'&&color==='black') win=bet*2;
+        else if(type==='number'&&num===7) win=bet*5;
+        if(win)adjustBalance(win);
+        document.getElementById('roulResult').innerHTML=`🎯 Number ${num} (${color}). ${win>0?'Win '+win:'Loss'}`;
+      });
+    }
+
+    function buildCraps() {
+      dynamicContent.innerHTML = `<div><span>🎲 Bet: </span><input id="crapsBet" class="bet-input" value="10"><button id="rollCraps">ROLL</button><span id="crapsResult"></span></div>`;
+      document.getElementById('rollCraps').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('crapsBet').value)||10;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const d1=Math.floor(Math.random()*6)+1, d2=Math.floor(Math.random()*6)+1;
+        const sum=d1+d2;
+        let win=0;
+        if(sum===7||sum===11) win=bet*3;
+        else if(sum===2||sum===3||sum===12) win=0;
+        else win=bet*1.5;
+        if(win)adjustBalance(win);
+        document.getElementById('crapsResult').textContent=`${d1}+${d2}=${sum} ${win>0?'Win '+win:'Lose'}`;
+      });
+    }
+
+    function buildHiLo() {
+      dynamicContent.innerHTML = `<div>💰 Bet:<input id="hlBet" class="bet-input" value="8"><button id="hlHigher">HIGHER</button><button id="hlLower">LOWER</button><span id="hlCard"></span></div>`;
+      let current=Math.floor(Math.random()*13)+2;
+      document.getElementById('hlCard').textContent=`Card: ${current}`;
+      function play(guessHigh){
+        const bet=parseInt(document.getElementById('hlBet').value)||8;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const next=Math.floor(Math.random()*13)+2;
+        const win=(guessHigh && next>current) || (!guessHigh && next<current);
+        if(win)adjustBalance(bet*2);
+        document.getElementById('hlCard').textContent=`Was ${current} → ${next} ${win?'Win':'Lose'}`;
+        current=next;
+      }
+      document.getElementById('hlHigher').onclick=()=>play(true);
+      document.getElementById('hlLower').onclick=()=>play(false);
+    }
+
+    function buildFruitSlots() {
+      buildSlots(); // similar but we reuse
+    }
+
+    function buildPokerFlip() {
+      dynamicContent.innerHTML = `<div>♠️ Bet:<input id="pokeBet" class="bet-input" value="12"><button id="dealPoker">DEAL</button><span id="pokerHand"></span></div>`;
+      document.getElementById('dealPoker').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('pokeBet').value)||12;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const rank = Math.floor(Math.random()*10)+1; // 1-10 rank
+        let win=0;
+        if(rank>=8) win=bet*4;
+        else if(rank>=5) win=bet*1.5;
+        document.getElementById('pokerHand').textContent=`Hand strength ${rank}/10 ${win>0?'+'+win:'Lose'}`;
+        if(win)adjustBalance(win);
+      });
+    }
+
+    function buildKeno() {
+      dynamicContent.innerHTML = `<div>🎯 Bet:<input id="kenoBet" class="bet-input" value="5"><button id="pickKeno">PICK 3</button><span id="kenoResult"></span></div>`;
+      document.getElementById('pickKeno').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('kenoBet').value)||5;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const picks=[1,2,3]; const drawn=new Set();
+        while(drawn.size<5) drawn.add(Math.floor(Math.random()*10)+1);
+        const matches = picks.filter(p=>drawn.has(p)).length;
+        let win= matches===3?bet*8:(matches===2?bet*2:0);
+        if(win)adjustBalance(win);
+        document.getElementById('kenoResult').textContent=`Drawn: ${[...drawn].join(',')} matches ${matches} ${win?'Win'+win:'Lose'}`;
+      });
+    }
+
+    function buildHorseRace() {
+      dynamicContent.innerHTML = `<div>🏇 Bet:<input id="horseBet" class="bet-input" value="10"><button id="raceHorse">RACE</button><span id="horseResult"></span></div>`;
+      document.getElementById('raceHorse').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('horseBet').value)||10;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const win = Math.random()<0.4;
+        if(win)adjustBalance(bet*2.5);
+        document.getElementById('horseResult').textContent=win?'🏆 Your horse won!':'💨 Lost.';
+      });
+    }
+
+    function buildMines() {
+      dynamicContent.innerHTML = `<div>💣 Bet:<input id="mineBet" class="bet-input" value="10"><button id="revealMine">REVEAL</button><span id="mineStatus"></span></div>`;
+      let mineActive=true;
+      document.getElementById('revealMine').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('mineBet').value)||10;
+        if(bet>balance)return;
+        if(!mineActive) { globalMsg.textContent='Game over, reset.'; return;}
+        adjustBalance(-bet);
+        const bomb = Math.random()<0.3;
+        if(bomb){ mineActive=false; document.getElementById('mineStatus').textContent='💥 BOOM! Lost.'; }
+        else { let win=bet*1.8; adjustBalance(win); document.getElementById('mineStatus').textContent='✅ Safe +'+win; }
+      });
+    }
+
+    function buildBaccarat() {
+      dynamicContent.innerHTML = `<div>🔢 Bet:<input id="bacBet" class="bet-input" value="15"><button id="bacPlayer">PLAYER</button><button id="bacBanker">BANKER</button><span id="bacResult"></span></div>`;
+      function playBac(choice){
+        const bet=parseInt(document.getElementById('bacBet').value)||15;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const player=Math.floor(Math.random()*9)+1, banker=Math.floor(Math.random()*9)+1;
+        let win=0;
+        if((choice==='player'&&player>banker)||(choice==='banker'&&banker>player)) win=bet*2;
+        else if(player===banker) win=bet;
+        if(win)adjustBalance(win);
+        document.getElementById('bacResult').textContent=`P:${player} B:${banker} ${win?'Win'+win:'Lose'}`;
+      }
+      document.getElementById('bacPlayer').onclick=()=>playBac('player');
+      document.getElementById('bacBanker').onclick=()=>playBac('banker');
+    }
+
+    function buildPlinko() {
+      dynamicContent.innerHTML = `<div>🎱 Bet:<input id="plinkoBet" class="bet-input" value="10"><button id="dropPlinko">DROP</button><span id="plinkoResult"></span></div>`;
+      document.getElementById('dropPlinko').addEventListener('click',()=>{
+        const bet=parseInt(document.getElementById('plinkoBet').value)||10;
+        if(bet>balance)return;
+        adjustBalance(-bet);
+        const mult = [0.5,1,1.5,2,3][Math.floor(Math.random()*5)];
+        const win = Math.floor(bet*mult);
+        adjustBalance(win);
+        document.getElementById('plinkoResult').textContent=`Multiplier ${mult}x → +${win}`;
+      });
+    }
+
+    // initialize grid and default game
+    renderGameGrid();
+    updateBalanceUI();
+    // load first game by default
+    if (games.length>0) {
+      activeGameId = games[0].id;
+      currentGameTitle.textContent = games[0].icon + ' ' + games[0].name;
+      gameInstruction.textContent = games[0].desc;
+      loadGameInterface(games[0].id);
+    }
+    checkRockBottom();
+  })();
+</script>
+</body>
+</html>
