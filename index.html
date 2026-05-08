@@ -3,362 +3,430 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>💎 ELITE CASINO · 12 GAMES · ANIMATED LUXE</title>
+  <title>✨ VEGAS ROYALE · 12 GAMES · FULL ANIMATION</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at 20% 30%, #1a1230, #03010a);
+      background: #0a0618;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 0;
       margin: 0;
-      animation: bgPulse 8s infinite alternate;
+      overflow-x: hidden;
     }
 
-    @keyframes bgPulse {
-      0% { background: radial-gradient(circle at 20% 30%, #1a1230, #03010a); }
-      100% { background: radial-gradient(circle at 80% 70%, #201838, #02000a); }
-    }
-
-    .grand-casino {
-      max-width: 1300px;
+    /* animated background particles */
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      background: rgba(10, 6, 22, 0.75);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1px solid rgba(240, 200, 80, 0.5);
-      box-shadow: 0 50px 80px rgba(0,0,0,0.9), 0 0 60px rgba(220, 180, 60, 0.35);
-      border-radius: 3.5rem;
-      padding: 2.2rem 2rem 2rem;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, #f9d56e 0%, transparent 70%);
+      border-radius: 50%;
+      animation: floatUp 6s infinite ease-in;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .main-layout {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      transition: all 0.3s ease;
-      animation: floatContainer 4s ease-in-out infinite;
+      padding: 0.8rem;
+      gap: 0.4rem;
     }
 
-    @keyframes floatContainer {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .top-panel {
+    /* TOP BAR */
+    .top-bar {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      background: rgba(0,0,0,0.55);
+      background: rgba(10, 5, 25, 0.8);
+      backdrop-filter: blur(20px);
       border-radius: 4rem;
-      padding: 1.2rem 2.2rem;
-      border: 1px solid rgba(212, 175, 55, 0.7);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+      padding: 0.8rem 2rem;
+      border: 2px solid rgba(212, 175, 55, 0.6);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 30px rgba(255, 200, 0, 0.25);
+      flex-shrink: 0;
+      animation: slideDown 0.8s ease-out;
     }
 
-    .balance-section {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
+    @keyframes slideDown {
+      0% { transform: translateY(-100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
-    .coin-badge {
+    .balance-area {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 2.6rem;
-      background: linear-gradient(145deg, #f9d56e, #b8861c);
+      gap: 1.5rem;
+    }
+
+    .token-display {
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: linear-gradient(180deg, #ffd966 0%, #b8860b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 15px gold);
-    }
-
-    .coin-badge span {
-      background: rgba(20, 15, 35, 0.85);
-      padding: 0.3rem 1.6rem;
-      border-radius: 3rem;
-      border: 1.5px solid #e6b422;
-      -webkit-text-fill-color: #ffdf80;
-      font-size: 2.4rem;
-      box-shadow: inset 0 0 12px rgba(255,215,0,0.5);
-      animation: coinGlow 2s infinite alternate;
-    }
-
-    @keyframes coinGlow {
-      0% { box-shadow: inset 0 0 8px gold; }
-      100% { box-shadow: inset 0 0 22px #ffb300; }
-    }
-
-    .rock-bottom-banner {
-      background: #2f2347;
-      padding: 0.6rem 1.8rem;
-      border-radius: 3rem;
-      color: #edd9a3;
-      font-weight: 700;
-      font-size: 0.95rem;
+      filter: drop-shadow(0 0 25px gold);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .token-display span {
+      background: #1a1230;
+      padding: 0.2rem 1.8rem;
+      border-radius: 3rem;
+      -webkit-text-fill-color: #ffd966;
+      border: 2px solid #e6b422;
+      box-shadow: inset 0 0 25px rgba(255,215,0,0.5);
+    }
+
+    .rock-bottom-alert {
+      background: #2d1948;
+      padding: 0.5rem 1.5rem;
+      border-radius: 2.5rem;
+      font-weight: 700;
+      color: #f5da81;
       border: 1px dashed #c9a53b;
-      animation: softShake 2.5s infinite;
+      font-size: 0.9rem;
+      animation: shake 3s infinite;
     }
 
-    @keyframes softShake {
+    @keyframes shake {
       0%,100%{ transform: rotate(0deg); }
-      25%{ transform: rotate(1deg); }
-      75%{ transform: rotate(-1deg); }
+      15%{ transform: rotate(2deg); }
+      30%{ transform: rotate(-2deg); }
+      45%{ transform: rotate(1deg); }
     }
 
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 0.9rem;
-      margin: 0.4rem 0 0.8rem;
+    .btn-gold {
+      background: linear-gradient(180deg, #f5d742, #b8860b);
+      border: none;
+      border-radius: 3rem;
+      padding: 0.7rem 2rem;
+      font-weight: 800;
+      color: #1a1025;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #6b4a14, 0 10px 20px black;
+      transition: 0.08s;
+      text-transform: uppercase;
+    }
+
+    .btn-gold:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #5a3e12;
+    }
+
+    /* MAIN CONTENT: game grid + active game side by side on desktop */
+    .content-wrapper {
+      display: flex;
+      gap: 1rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .game-sidebar {
+      width: 280px;
+      background: rgba(15, 8, 28, 0.7);
+      backdrop-filter: blur(20px);
+      border-radius: 2.5rem;
+      padding: 1rem 0.8rem;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+      max-height: 100%;
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    @keyframes fadeInLeft {
+      0% { transform: translateX(-50px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
     }
 
     .game-card {
-      background: rgba(25, 19, 40, 0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 2.3rem;
-      padding: 1.2rem 0.5rem;
-      text-align: center;
-      border: 1.5px solid rgba(210, 160, 40, 0.55);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.7);
-      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
-      cursor: pointer;
+      background: rgba(30, 20, 50, 0.7);
+      border-radius: 2rem;
+      padding: 0.8rem 1rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      color: #f0e3c2;
-      transform: scale(1);
+      gap: 0.8rem;
+      border: 1px solid rgba(210, 160, 40, 0.4);
+      cursor: pointer;
+      transition: all 0.25s;
+      color: #e5d5a4;
+      font-weight: 600;
     }
 
     .game-card:hover {
-      transform: translateY(-6px) scale(1.03);
+      background: rgba(60, 40, 90, 0.8);
       border-color: #f5c84e;
-      box-shadow: 0 20px 30px rgba(230, 170, 20, 0.5);
-      background: rgba(35, 25, 58, 0.9);
+      transform: translateX(8px);
+      box-shadow: 0 10px 20px rgba(255,215,0,0.3);
     }
 
-    .game-card:active {
-      transform: scale(0.96);
+    .game-card.active-game {
+      border-color: #ffd700;
+      box-shadow: 0 0 25px gold;
+      background: rgba(80, 50, 120, 0.8);
     }
 
     .game-icon {
-      font-size: 2.8rem;
-      filter: drop-shadow(0 6px 8px black);
-      animation: iconBounce 2.2s infinite alternate ease-in-out;
+      font-size: 2rem;
+      filter: drop-shadow(0 4px 4px black);
     }
 
-    @keyframes iconBounce {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-4px); }
+    .game-panel {
+      flex: 1;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(25px);
+      border-radius: 3rem;
+      border: 2px solid rgba(212, 175, 55, 0.6);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.8);
+      animation: fadeInRight 0.8s ease;
+      overflow-y: auto;
     }
 
-    .active-game-area {
-      background: rgba(0,0,0,0.5);
-      border-radius: 2.8rem;
-      padding: 1.8rem;
-      border: 2px solid rgba(212,175,55,0.5);
-      backdrop-filter: blur(18px);
+    @keyframes fadeInRight {
+      0% { transform: translateX(50px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    .game-header {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f5d742;
+      text-shadow: 0 0 20px black;
+    }
+
+    .dynamic-content {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      animation: fadeSlide 0.5s ease;
     }
 
-    @keyframes fadeSlide {
-      0% { opacity: 0.6; transform: translateY(8px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .reel-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      font-size: 4.5rem;
+      background: #120c20;
+      padding: 1rem;
+      border-radius: 2rem;
+      border: 2px solid #b4943a;
     }
 
-    button {
-      background: linear-gradient(180deg, #f7dd7e 0%, #b68b2c 100%);
-      border: none;
-      border-radius: 3rem;
-      padding: 0.8rem 2rem;
-      font-weight: 800;
-      color: #1e1529;
-      letter-spacing: 0.8px;
-      cursor: pointer;
-      box-shadow: 0 7px 0 #5c3f14, 0 10px 20px black;
-      transition: all 0.08s linear;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      border: 1px solid #efcd70;
-      position: relative;
-      overflow: hidden;
+    .reel {
+      transition: transform 0.2s;
+      animation: spinReel 0.4s ease-out;
     }
 
-    button:hover {
-      background: linear-gradient(180deg, #ffea8c, #c99b2e);
+    @keyframes spinReel {
+      0% { transform: translateY(-40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
-    button:active {
-      transform: translateY(5px);
-      box-shadow: 0 2px 0 #4c3512, 0 7px 14px black;
+    .win-glow {
+      animation: glowPulse 0.7s ease 3;
     }
 
-    .result-message {
-      background: rgba(34, 29, 49, 0.9);
-      padding: 0.9rem 2rem;
-      border-radius: 2.5rem;
-      font-weight: 700;
-      color: #fadf8a;
-      backdrop-filter: blur(10px);
-      transition: 0.2s;
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 15px gold; }
+      50% { box-shadow: 0 0 60px orange; }
+      100% { box-shadow: 0 0 15px gold; }
     }
 
-    .reel-spin {
-      display: inline-block;
-      animation: reelAnim 0.3s ease-out;
+    .result-badge {
+      background: #241f35;
+      padding: 1rem;
+      border-radius: 2rem;
+      font-weight: bold;
+      text-align: center;
     }
 
-    @keyframes reelAnim {
-      0% { transform: translateY(-20px); opacity:0; }
-      100% { transform: translateY(0); opacity:1; }
-    }
-
-    .win-flash {
-      animation: winPulse 0.6s ease 2;
-    }
-
-    @keyframes winPulse {
-      0% { background: rgba(255,215,0,0.2); }
-      50% { background: rgba(255,215,0,0.7); }
-      100% { background: rgba(255,215,0,0.2); }
+    @media (max-width: 850px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      .game-sidebar {
+        width: 100%;
+        max-height: 180px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-x: auto;
+      }
+      .game-card {
+        flex: 0 0 auto;
+      }
     }
   </style>
 </head>
 <body>
-<div class="grand-casino">
-  <div class="top-panel">
-    <div class="balance-section">
-      <div class="coin-badge">
-        💰 <span id="balanceDisplay">500</span>
-      </div>
-      <div class="rock-bottom-banner" id="rockBottomMsg">
-        🆘 <span>Rock bottom? +100 tokens</span>
-      </div>
+<div class="bg-particles" id="particlesContainer"></div>
+
+<div class="main-layout">
+  <div class="top-bar">
+    <div class="balance-area">
+      <div class="token-display">💎 <span id="balanceDisplay">500</span></div>
+      <div class="rock-bottom-alert">🆘 ROCK BOTTOM = +100</div>
     </div>
-    <button id="resetBalanceBtn" style="background:#3e2e51; color:#f5e3b0; box-shadow:0 5px 0 #231b2c;">↺ RESET 500</button>
+    <button class="btn-gold" id="resetBtn">↺ RESET 500</button>
   </div>
 
-  <div class="game-grid" id="gameGrid"></div>
-
-  <div class="active-game-area" id="activeGamePanel">
-    <div class="game-header" style="display:flex; justify-content:space-between;">
-      <span id="currentGameTitle" style="font-weight:700; font-size:1.4rem;">🎲 SELECT GAME</span>
-      <span id="gameInstruction" style="color:#cfb87c;">Click any game</span>
+  <div class="content-wrapper">
+    <div class="game-sidebar" id="gameSidebar"></div>
+    <div class="game-panel" id="gamePanel">
+      <div class="game-header" id="gameTitle">🎰 SLOTS</div>
+      <div class="dynamic-content" id="dynamicContent"></div>
+      <div id="globalMessage" style="font-weight:bold; color:#ffd966; text-align:center;"></div>
     </div>
-    <div id="dynamicGameContent" style="min-height:140px;"></div>
   </div>
-  <div id="globalMessage" class="result-message" style="text-align:center; font-weight:bold;">✨ Welcome! 500 tokens.</div>
 </div>
 
 <script>
-  (function() {
+  (() => {
+    // ----- BALANCE SYSTEM -----
     let balance = 500;
-    const BALANCE_KEY = 'luxeAnimatedCasino';
+    const STORAGE_KEY = 'vegasRoyaleBalance';
     try {
-      const saved = localStorage.getItem(BALANCE_KEY);
-      if (saved) { let v = parseFloat(saved); if (!isNaN(v) && v>=0) balance = v; }
-    } catch(e) {}
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) { let v = parseFloat(saved); if (!isNaN(v) && v >= 0) balance = v; }
+    } catch (e) {}
 
-    function saveBalance() { localStorage.setItem(BALANCE_KEY, balance); }
-    function updateUI() { document.getElementById('balanceDisplay').textContent = balance; saveBalance(); }
+    function save() { localStorage.setItem(STORAGE_KEY, balance); }
+    function updateBalanceDisplay() {
+      document.getElementById('balanceDisplay').textContent = balance;
+      save();
+    }
 
-    let rockBottomGiven = false;
+    let rockBottomUsed = false;
     function checkRockBottom() {
       if (balance <= 0) {
-        if (!rockBottomGiven) {
+        if (!rockBottomUsed) {
           balance += 100;
-          rockBottomGiven = true;
-          document.getElementById('globalMessage').textContent = '🆘 ROCK BOTTOM! +100 tokens gifted.';
-          animateElement('globalMessage', 'win-flash');
+          rockBottomUsed = true;
+          showMessage('🆘 ROCK BOTTOM! +100 tokens gifted.', 'win-glow');
         } else {
           if (balance < 0) balance = 0;
         }
       } else {
-        rockBottomGiven = false;
+        rockBottomUsed = false;
       }
-      updateUI();
+      updateBalanceDisplay();
     }
 
     function adjustBalance(amount) {
       balance += amount;
       if (balance < 0) balance = 0;
-      updateUI();
+      updateBalanceDisplay();
       checkRockBottom();
     }
 
-    function setBalance(v) { balance = v; if(balance<0)balance=0; updateUI(); checkRockBottom(); }
-    document.getElementById('resetBalanceBtn').addEventListener('click', ()=>{
-      setBalance(500); rockBottomGiven = false;
-      document.getElementById('globalMessage').textContent = '🔄 Balance reset.';
-    });
-
-    function animateElement(id, className) {
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.classList.add(className);
-      setTimeout(()=> el.classList.remove(className), 700);
+    function setBalance(val) {
+      balance = val;
+      if (balance < 0) balance = 0;
+      updateBalanceDisplay();
+      checkRockBottom();
     }
 
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      setBalance(500);
+      rockBottomUsed = false;
+      showMessage('🔄 Balance reset to 500.');
+    });
+
+    function showMessage(text, className = '') {
+      const el = document.getElementById('globalMessage');
+      el.textContent = text;
+      if (className) {
+        el.classList.add(className);
+        setTimeout(() => el.classList.remove(className), 800);
+      }
+    }
+
+    // ----- GAMES DEFINITION -----
     const games = [
-      {name:"🎰 Slots",id:"slots",icon:"🎰",desc:"Spin & match"},
-      {name:"🃏 Blackjack",id:"blackjack",icon:"🃏",desc:"21 duel"},
-      {name:"🎡 Roulette",id:"roulette",icon:"🎡",desc:"Color/number"},
-      {name:"🎲 Craps",id:"craps",icon:"🎲",desc:"Dice 7/11"},
-      {name:"💰 Hi-Lo",id:"hilo",icon:"💰",desc:"Higher/Lower"},
-      {name:"🍒 FruitSlots",id:"fruitslots",icon:"🍒",desc:"Juicy spins"},
-      {name:"♠️ PokerFlip",id:"pokerflip",icon:"♠️",desc:"Hand rank"},
-      {name:"🎯 Keno",id:"keno",icon:"🎯",desc:"Pick numbers"},
-      {name:"🏇 HorseRace",id:"horserace",icon:"🏇",desc:"Bet on horse"},
-      {name:"💣 Mines",id:"mines",icon:"💣",desc:"Avoid bombs"},
-      {name:"🔢 Baccarat",id:"baccarat",icon:"🔢",desc:"Player/Banker"},
-      {name:"🎱 Plinko",id:"plinko",icon:"🎱",desc:"Drop ball"}
+      { id: 'slots', name: '🎰 Slots', icon: '🎰', desc: 'Spin & match symbols' },
+      { id: 'blackjack', name: '🃏 Blackjack', icon: '🃏', desc: 'Beat dealer 21' },
+      { id: 'roulette', name: '🎡 Roulette', icon: '🎡', desc: 'Red/Black/Number' },
+      { id: 'craps', name: '🎲 Craps', icon: '🎲', desc: 'Dice 7/11 wins' },
+      { id: 'hilo', name: '💰 Hi-Lo', icon: '💰', desc: 'Higher or lower' },
+      { id: 'fruitslots', name: '🍒 Fruit Slots', icon: '🍒', desc: 'Juicy classic' },
+      { id: 'pokerflip', name: '♠️ Poker Flip', icon: '♠️', desc: '5-card hand rank' },
+      { id: 'keno', name: '🎯 Keno', icon: '🎯', desc: 'Pick & match' },
+      { id: 'horserace', name: '🏇 Horse Race', icon: '🏇', desc: 'Bet on horse' },
+      { id: 'mines', name: '💣 Mines', icon: '💣', desc: 'Avoid bombs' },
+      { id: 'baccarat', name: '🔢 Baccarat', icon: '🔢', desc: 'Player vs Banker' },
+      { id: 'plinko', name: '🎱 Plinko', icon: '🎱', desc: 'Drop ball multiplier' }
     ];
 
-    const grid = document.getElementById('gameGrid');
-    const titleEl = document.getElementById('currentGameTitle');
-    const instrEl = document.getElementById('gameInstruction');
-    const contentDiv = document.getElementById('dynamicGameContent');
-    let activeId = null;
+    let activeGameId = 'slots';
 
-    function renderGrid() {
-      grid.innerHTML = '';
+    const sidebar = document.getElementById('gameSidebar');
+    const gameTitleEl = document.getElementById('gameTitle');
+    const dynamicContent = document.getElementById('dynamicContent');
+
+    function renderSidebar() {
+      sidebar.innerHTML = '';
       games.forEach(g => {
         const card = document.createElement('div');
         card.className = 'game-card';
-        card.innerHTML = `<div class="game-icon">${g.icon}</div><div class="game-name">${g.name}</div>`;
-        card.addEventListener('click', ()=>{
-          activeId = g.id;
-          titleEl.textContent = g.icon + ' ' + g.name;
-          instrEl.textContent = g.desc;
+        if (g.id === activeGameId) card.classList.add('active-game');
+        card.innerHTML = `<span class="game-icon">${g.icon}</span><span>${g.name}</span>`;
+        card.addEventListener('click', () => {
+          activeGameId = g.id;
+          renderSidebar();
           loadGame(g.id);
-          document.querySelectorAll('.game-card').forEach(c => c.style.borderColor = 'rgba(210,160,40,0.45)');
-          card.style.borderColor = '#f5d742';
+          gameTitleEl.textContent = g.icon + ' ' + g.name;
         });
-        grid.appendChild(card);
+        sidebar.appendChild(card);
       });
     }
 
     function loadGame(id) {
-      contentDiv.innerHTML = '';
-      switch(id) {
+      dynamicContent.innerHTML = '';
+      switch (id) {
         case 'slots': buildSlots(); break;
         case 'blackjack': buildBlackjack(); break;
         case 'roulette': buildRoulette(); break;
@@ -374,54 +442,56 @@
       }
     }
 
-    function getBetInput(defaultVal=10) {
-      const inp = document.createElement('input');
-      inp.type='number'; inp.className='bet-input'; inp.value=defaultVal; inp.min=1; inp.max=balance;
-      return inp;
+    function betInput(value=10) {
+      return `<input class="bet-input" id="gameBet" type="number" value="${value}" min="1" max="${balance}" style="background:#1f1730; border:1px solid #c5a343; border-radius:2rem; padding:0.5rem 1rem; color:#ffe8b0; width:90px; text-align:center;">`;
     }
 
+    // ---------- GAME BUILDERS WITH ANIMATIONS ----------
     function buildSlots() {
-      contentDiv.innerHTML = `<div class="flex-row" style="display:flex; gap:12px; align-items:center;"><span>🎰 Bet:</span><input id="slotBet" class="bet-input" value="10" min="1"><button id="spinSlots">SPIN</button></div>
-      <div style="font-size:3rem; letter-spacing:15px; margin:15px 0;" id="slotReels">🍒 🍋 🍊</div><div id="slotResult" class="result-message"></div>`;
-      document.getElementById('spinSlots').addEventListener('click', ()=>{
-        const bet = parseInt(document.getElementById('slotBet').value)||10;
-        if(bet>balance) { alertMsg('Not enough tokens'); return; }
+      dynamicContent.innerHTML = `
+        <div style="display:flex; gap:10px; align-items:center;">${betInput(10)}<button class="btn-gold" id="spinBtn">SPIN</button></div>
+        <div class="reel-container" id="reels">🍒 🍋 🍊</div>
+        <div class="result-badge" id="slotResult"></div>
+      `;
+      document.getElementById('spinBtn').addEventListener('click', () => {
+        const bet = parseInt(document.getElementById('gameBet').value) || 10;
+        if (bet > balance) { showMessage('Not enough tokens'); return; }
         adjustBalance(-bet);
         const symbols = ['🍒','🍋','🍊','🍇','💎','7️⃣'];
-        const r1=symbols[Math.floor(Math.random()*symbols.length)];
-        const r2=symbols[Math.floor(Math.random()*symbols.length)];
-        const r3=symbols[Math.floor(Math.random()*symbols.length)];
-        const reelDiv = document.getElementById('slotReels');
-        reelDiv.innerHTML = `<span class="reel-spin">${r1}</span> <span class="reel-spin">${r2}</span> <span class="reel-spin">${r3}</span>`;
-        let win=0;
-        if(r1===r2 && r2===r3) win=bet*10;
-        else if(r1===r2||r2===r3||r1===r3) win=bet*2;
-        if(win>0){ adjustBalance(win); document.getElementById('slotResult').textContent=`🏆 +${win}`; animateElement('slotResult','win-flash');}
-        else document.getElementById('slotResult').textContent='😵 Loss';
+        const r1 = symbols[Math.floor(Math.random()*symbols.length)];
+        const r2 = symbols[Math.floor(Math.random()*symbols.length)];
+        const r3 = symbols[Math.floor(Math.random()*symbols.length)];
+        const reelDiv = document.getElementById('reels');
+        reelDiv.innerHTML = `<span class="reel">${r1}</span> <span class="reel">${r2}</span> <span class="reel">${r3}</span>`;
+        let win = 0;
+        if (r1===r2 && r2===r3) win = bet*10;
+        else if (r1===r2 || r2===r3 || r1===r3) win = bet*2;
+        if (win) { adjustBalance(win); document.getElementById('slotResult').textContent = `🏆 +${win}`; reelDiv.classList.add('win-glow'); setTimeout(()=>reelDiv.classList.remove('win-glow'),700); }
+        else document.getElementById('slotResult').textContent = '😵 Loss';
       });
     }
 
     function buildBlackjack() {
-      contentDiv.innerHTML = `<div style="display:flex; gap:10px;"><span>🃏 Bet:</span><input id="bjBet" class="bet-input" value="20"><button id="dealBJ">DEAL</button></div><div id="bjTable" style="font-size:1.3rem;"></div>`;
-      document.getElementById('dealBJ').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('bjBet').value)||20;
-        if(bet>balance){alertMsg('Low balance');return;}
+      dynamicContent.innerHTML = `<div style="display:flex; gap:10px;">${betInput(20)}<button class="btn-gold" id="dealBJ">DEAL</button></div><div id="bjTable" style="font-size:1.6rem;"></div>`;
+      document.getElementById('dealBJ').addEventListener('click', ()=>{
+        const bet = parseInt(document.getElementById('gameBet').value)||20;
+        if(bet>balance) return showMessage('Low balance');
         adjustBalance(-bet);
-        const player=Math.floor(Math.random()*11)+10, dealer=Math.floor(Math.random()*11)+10;
-        let result=`Player ${player} | Dealer ${dealer}. `, win=0;
-        if(player>21) result+='Bust!';
+        const player = Math.floor(Math.random()*11)+10, dealer = Math.floor(Math.random()*11)+10;
+        let result = `Player ${player} | Dealer ${dealer}. `, win=0;
+        if(player>21) result+='Bust';
         else if(dealer>21||player>dealer){win=bet*2; result+='You win!';}
-        else if(player===dealer){win=bet; result+='Push.';}
-        else result+='Dealer wins.';
+        else if(player===dealer){win=bet; result+='Push';}
+        else result+='Dealer wins';
         if(win) adjustBalance(win);
-        document.getElementById('bjTable').innerHTML=result;
+        document.getElementById('bjTable').innerHTML = result;
       });
     }
 
     function buildRoulette() {
-      contentDiv.innerHTML = `<div style="display:flex; gap:8px;"><span>🎡 Bet:</span><input id="roulBet" class="bet-input" value="15"><select id="roulType"><option value="red">Red 2x</option><option value="black">Black 2x</option><option value="number">Number 5x</option></select><button id="spinRoul">SPIN</button></div><div id="roulResult"></div>`;
+      dynamicContent.innerHTML = `<div style="display:flex; gap:8px;">${betInput(15)}<select id="roulType" style="background:#1f1730;color:gold;border-radius:2rem;padding:0.4rem;"><option value="red">Red 2x</option><option value="black">Black 2x</option><option value="number">Number 5x</option></select><button class="btn-gold" id="spinRoul">SPIN</button></div><div id="roulResult"></div>`;
       document.getElementById('spinRoul').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('roulBet').value)||15;
+        const bet=parseInt(document.getElementById('gameBet').value)||15;
         if(bet>balance)return;
         adjustBalance(-bet);
         const num=Math.floor(Math.random()*15)+1, color=num%2===0?'red':'black';
@@ -435,9 +505,9 @@
     }
 
     function buildCraps() {
-      contentDiv.innerHTML = `<div><span>🎲 Bet:</span><input id="crapsBet" class="bet-input" value="10"><button id="rollCraps">ROLL</button><span id="crapsResult"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(10)}<button class="btn-gold" id="rollCraps">ROLL</button><span id="crapsResult"></span></div>`;
       document.getElementById('rollCraps').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('crapsBet').value)||10;
+        const bet=parseInt(document.getElementById('gameBet').value)||10;
         if(bet>balance)return; adjustBalance(-bet);
         const d1=Math.floor(Math.random()*6)+1,d2=Math.floor(Math.random()*6)+1,sum=d1+d2;
         let win=0; if(sum===7||sum===11) win=bet*3; else if(sum===2||sum===3||sum===12) win=0; else win=bet*1.5;
@@ -447,11 +517,11 @@
     }
 
     function buildHiLo() {
-      contentDiv.innerHTML = `<div>💰 Bet:<input id="hlBet" class="bet-input" value="8"><button id="hlHigher">HIGHER</button><button id="hlLower">LOWER</button><span id="hlCard"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(8)}<button class="btn-gold" id="hlHigh">HIGHER</button><button class="btn-gold" id="hlLow">LOWER</button><span id="hlCard"></span></div>`;
       let current=Math.floor(Math.random()*13)+2;
       document.getElementById('hlCard').textContent=`Card: ${current}`;
       function play(high){
-        const bet=parseInt(document.getElementById('hlBet').value)||8;
+        const bet=parseInt(document.getElementById('gameBet').value)||8;
         if(bet>balance)return; adjustBalance(-bet);
         const next=Math.floor(Math.random()*13)+2;
         const win=(high && next>current)||(!high && next<current);
@@ -459,15 +529,15 @@
         document.getElementById('hlCard').textContent=`${current}→${next} ${win?'Win':'Lose'}`;
         current=next;
       }
-      document.getElementById('hlHigher').onclick=()=>play(true);
-      document.getElementById('hlLower').onclick=()=>play(false);
+      document.getElementById('hlHigh').onclick=()=>play(true);
+      document.getElementById('hlLow').onclick=()=>play(false);
     }
 
-    function buildFruitSlots() { buildSlots(); } 
+    function buildFruitSlots() { buildSlots(); }
     function buildPokerFlip() {
-      contentDiv.innerHTML = `<div>♠️ Bet:<input id="pokeBet" class="bet-input" value="12"><button id="dealPoker">DEAL</button><span id="pokerHand"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(12)}<button class="btn-gold" id="dealPoker">DEAL</button><span id="pokerHand"></span></div>`;
       document.getElementById('dealPoker').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('pokeBet').value)||12;
+        const bet=parseInt(document.getElementById('gameBet').value)||12;
         if(bet>balance)return; adjustBalance(-bet);
         const rank=Math.floor(Math.random()*10)+1; let win=0;
         if(rank>=8) win=bet*4; else if(rank>=5) win=bet*1.5;
@@ -475,11 +545,10 @@
         document.getElementById('pokerHand').textContent=`Strength ${rank}/10 ${win?'+'+win:'Lose'}`;
       });
     }
-
     function buildKeno() {
-      contentDiv.innerHTML = `<div>🎯 Bet:<input id="kenoBet" class="bet-input" value="5"><button id="pickKeno">PICK 3</button><span id="kenoResult"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(5)}<button class="btn-gold" id="pickKeno">PICK 3</button><span id="kenoResult"></span></div>`;
       document.getElementById('pickKeno').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('kenoBet').value)||5;
+        const bet=parseInt(document.getElementById('gameBet').value)||5;
         if(bet>balance)return; adjustBalance(-bet);
         const picks=[1,2,3]; const drawn=new Set(); while(drawn.size<5) drawn.add(Math.floor(Math.random()*10)+1);
         const matches=picks.filter(p=>drawn.has(p)).length; let win=matches===3?bet*8:(matches===2?bet*2:0);
@@ -487,33 +556,29 @@
         document.getElementById('kenoResult').textContent=`Drawn ${[...drawn]} matches ${matches} ${win?'+'+win:'Lose'}`;
       });
     }
-
     function buildHorseRace() {
-      contentDiv.innerHTML = `<div>🏇 Bet:<input id="horseBet" class="bet-input" value="10"><button id="raceHorse">RACE</button><span id="horseResult"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(10)}<button class="btn-gold" id="raceHorse">RACE</button><span id="horseResult"></span></div>`;
       document.getElementById('raceHorse').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('horseBet').value)||10;
+        const bet=parseInt(document.getElementById('gameBet').value)||10;
         if(bet>balance)return; adjustBalance(-bet);
         const win=Math.random()<0.4; if(win)adjustBalance(bet*2.5);
         document.getElementById('horseResult').textContent=win?'🏆 Won!':'💨 Lost';
       });
     }
-
     function buildMines() {
-      contentDiv.innerHTML = `<div>💣 Bet:<input id="mineBet" class="bet-input" value="10"><button id="revealMine">REVEAL</button><span id="mineStatus"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(10)}<button class="btn-gold" id="revealMine">REVEAL</button><span id="mineStatus"></span></div>`;
       let active=true;
       document.getElementById('revealMine').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('mineBet').value)||10;
-        if(bet>balance)return; if(!active)return;
-        adjustBalance(-bet);
-        if(Math.random()<0.3){ active=false; document.getElementById('mineStatus').textContent='💥 BOOM!'; }
+        const bet=parseInt(document.getElementById('gameBet').value)||10;
+        if(bet>balance||!active)return; adjustBalance(-bet);
+        if(Math.random()<0.3){ active=false; document.getElementById('mineStatus').textContent='💥 BOOM!';}
         else { let w=bet*1.8; adjustBalance(w); document.getElementById('mineStatus').textContent='✅ Safe +'+w; }
       });
     }
-
     function buildBaccarat() {
-      contentDiv.innerHTML = `<div>🔢 Bet:<input id="bacBet" class="bet-input" value="15"><button id="bacPlayer">PLAYER</button><button id="bacBanker">BANKER</button><span id="bacResult"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(15)}<button class="btn-gold" id="bacPlayer">PLAYER</button><button class="btn-gold" id="bacBanker">BANKER</button><span id="bacResult"></span></div>`;
       function play(choice){
-        const bet=parseInt(document.getElementById('bacBet').value)||15;
+        const bet=parseInt(document.getElementById('gameBet').value)||15;
         if(bet>balance)return; adjustBalance(-bet);
         const p=Math.floor(Math.random()*9)+1,b=Math.floor(Math.random()*9)+1; let win=0;
         if((choice==='player'&&p>b)||(choice==='banker'&&b>p)) win=bet*2; else if(p===b) win=bet;
@@ -523,11 +588,10 @@
       document.getElementById('bacPlayer').onclick=()=>play('player');
       document.getElementById('bacBanker').onclick=()=>play('banker');
     }
-
     function buildPlinko() {
-      contentDiv.innerHTML = `<div>🎱 Bet:<input id="plinkoBet" class="bet-input" value="10"><button id="dropPlinko">DROP</button><span id="plinkoResult"></span></div>`;
+      dynamicContent.innerHTML = `<div>${betInput(10)}<button class="btn-gold" id="dropPlinko">DROP</button><span id="plinkoResult"></span></div>`;
       document.getElementById('dropPlinko').addEventListener('click',()=>{
-        const bet=parseInt(document.getElementById('plinkoBet').value)||10;
+        const bet=parseInt(document.getElementById('gameBet').value)||10;
         if(bet>balance)return; adjustBalance(-bet);
         const mult=[0.5,1,1.5,2,3][Math.floor(Math.random()*5)]; const win=Math.floor(bet*mult);
         adjustBalance(win);
@@ -535,12 +599,26 @@
       });
     }
 
-    function alertMsg(txt){ document.getElementById('globalMessage').textContent=txt; }
+    // background particles
+    function createParticles() {
+      const container = document.getElementById('particlesContainer');
+      for (let i=0; i<35; i++) {
+        const p = document.createElement('div');
+        p.className='particle';
+        p.style.left = Math.random()*100+'%';
+        p.style.width = p.style.height = (Math.random()*8+3)+'px';
+        p.style.animationDuration = (Math.random()*5+5)+'s';
+        p.style.animationDelay = Math.random()*5+'s';
+        container.appendChild(p);
+      }
+    }
+    createParticles();
 
-    renderGrid();
-    updateUI();
-    if(games.length>0){ activeId=games[0].id; titleEl.textContent=games[0].icon+' '+games[0].name; instrEl.textContent=games[0].desc; loadGame(games[0].id); }
-    checkRockBottom();
+    // init
+    renderSidebar();
+    updateBalanceDisplay();
+    loadGame('slots');
+    gameTitleEl.textContent = '🎰 Slots';
   })();
 </script>
 </body>
