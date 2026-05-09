@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegas Royale Casino - Premium Experience</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="floating-chips"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="casino-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1 class="logo-text">VEGAS ROYALE</h1>
+                <div class="logo-sparkle"></div>
+            </div>
+            <div class="balance-display">
+                <div class="balance-animation">
+                    <span class="coin-icon">🪙</span>
+                    <span id="balance" class="balance-amount">500</span>
+                </div>
+                <div class="rock-bottom-indicator" id="rockBottomBadge">
+                    <span class="safety-net">🆘 Safety Net Active</span>
+                </div>
+            </div>
+            <button id="resetBalance" class="btn-reset">
+                <span class="btn-content">↻ Reset</span>
+            </button>
+        </header>
+
+        <!-- Game Navigation -->
+        <nav class="game-nav">
+            <div class="nav-scroll">
+                <button class="game-tab active" data-game="slots">
+                    <span class="tab-icon">🎰</span>
+                    <span class="tab-name">Slots</span>
+                </button>
+                <button class="game-tab" data-game="blackjack">
+                    <span class="tab-icon">🃏</span>
+                    <span class="tab-name">Blackjack</span>
+                </button>
+                <button class="game-tab" data-game="roulette">
+                    <span class="tab-icon">🎡</span>
+                    <span class="tab-name">Roulette</span>
+                </button>
+                <button class="game-tab" data-game="craps">
+                    <span class="tab-icon">🎲</span>
+                    <span class="tab-name">Craps</span>
+                </button>
+                <button class="game-tab" data-game="hilo">
+                    <span class="tab-icon">📈</span>
+                    <span class="tab-name">Hi-Lo</span>
+                </button>
+                <button class="game-tab" data-game="fruitslots">
+                    <span class="tab-icon">🍒</span>
+                    <span class="tab-name">Fruit</span>
+                </button>
+                <button class="game-tab" data-game="pokerflip">
+                    <span class="tab-icon">♠️</span>
+                    <span class="tab-name">Poker</span>
+                </button>
+                <button class="game-tab" data-game="keno">
+                    <span class="tab-icon">🎯</span>
+                    <span class="tab-name">Keno</span>
+                </button>
+                <button class="game-tab" data-game="horserace">
+                    <span class="tab-icon">🐎</span>
+                    <span class="tab-name">Race</span>
+                </button>
+                <button class="game-tab" data-game="mines">
+                    <span class="tab-icon">💣</span>
+                    <span class="tab-name">Mines</span>
+                </button>
+                <button class="game-tab" data-game="baccarat">
+                    <span class="tab-icon">🎴</span>
+                    <span class="tab-name">Baccarat</span>
+                </button>
+                <button class="game-tab" data-game="plinko">
+                    <span class="tab-icon">⚪</span>
+                    <span class="tab-name">Plinko</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Game Area -->
+        <main class="game-area">
+            <div class="game-container" id="gameContainer">
+                <!-- Dynamic game content loads here -->
+            </div>
+        </main>
+
+        <!-- Message Toast -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/balance.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
